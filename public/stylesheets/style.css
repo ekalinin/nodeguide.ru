@@ -61,7 +61,7 @@ h4 {
 }
 
 pre {
-    margin: 20px 10px;
+    margin: 20px 30px;
     padding: 25px 20px;
     background: rgba(0,0,0,0.5);
     border: 1px solid #323232;
@@ -70,10 +70,11 @@ pre {
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px; 
 }
-
+/*
 code {
     font-family: "Helvetica Neue", "Lucida Grande", "Arial"; 
 }
+*/
 
 ul {
     margin: 15px 0;
@@ -132,7 +133,7 @@ img {
 #wrapper {
     width: 100%;
     min-height: 800px;
-    background: url(images/top.png) 0 0 repeat-x; }
+}
 
 #container {
     margin: 0 auto;
