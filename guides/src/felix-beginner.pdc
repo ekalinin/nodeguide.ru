@@ -248,3 +248,74 @@ var mysql = require('mysql');
 И наконец, node.js учитывает файл 'index.js', в котором описывается главный
 файл импорта для директории. Таким образом, если встретится вызов `require('./foo')`,
 то node.js будет пробовать искать файлы и 'foo.js' и 'foo/index.js'.
+
+## Использование EventEmitters
+
+Node.js реализует [шаблон проектирования][pattern] [наблюдатель][observerpattern] 
+([рус][observerpatternru]) используя класс EventEmitter. Всегда, когда естЬ объект, 
+который является источником событий, node.js наследует класс этого объекта от класса 
+EventEmitter.
+
+Использовать EventEmitter и его наследников довольно просто. Необходимо лишь вызвать 
+метод 'on()' у объекта, генерирующего события, и передать в качестве параметров имя 
+события и функцию обратного вызова. Например:
+
+[observerpattern]: http://en.wikipedia.org/wiki/Observer_pattern
+[observerpatternru]: http://ru.wikipedia.org/wiki/Наблюдатель_(шаблон_проектирования) 
+[pattern]: http://ru.wikipedia.org/wiki/Шаблон_проектирования
+
+~~~ {.javascript}
+var data = '';
+req
+  .on('data', function(chunk) {
+    data += chunk;
+  })
+  .on('end', function() {
+    console.log('POST data: %s', data);
+  })
+~~~
+
+Как видно, функция [on()][ondoc] возвращает ссылку на объект, которому она принадлежит,
+что позволяет связывать в цепочки вызовов несколько прослушивателей событий.
+
+Если интересует только первое возникновение события, то вместо [on()][ondoc] можно использовать 
+функцию [once()][oncedoc].
+
+Наконец, можно удалить возможность прослушивания событий с помощью функции [removeListener]
+[removeListenerdoc]. Следует обратить внимание, что аргументами в этой функции являются
+ссылки на функции обратного вызова, которые необходимо удалить, а не имена событий:
+
+[removeListenerdoc]: http://nodejs.org/docs/v0.4.5/api/all.html#emitter.removeListener
+[ondoc]: http://nodejs.org/docs/v0.4.5/api/all.html#emitter.on
+[oncedoc]: http://nodejs.org/docs/v0.4.5/api/all.html#emitter.once
+
+
+~~~ {.javascript}
+var onData = function(chunk) {
+  console.log(chunk);
+  req.removeListener(onData);
+}
+
+req.on('data', onData);
+~~~
+
+Этот пример идентичен случаю использования метода [once()][oncedoc].
+
+## Что дальше ?
+
+Теперь у вас есть базовые знания о node.js и сейчас лучше попробовать написать
+самостоятельно несколько небольших программ. Лучшее место для начала - это 
+[документация по API node.js][nodeapidocs].
+
+[nodeapidocs]: http://nodejs.org/docs/v0.4.5/api/
+
+## Отладка приложений node.js
+
+Существует много способов отладки node.js приложений. Лично я предпочитаю отлаживаться
+как можно меньше и следовать максимально точно [руководству по разработке через 
+тестирование][tddguide].
+
+Однако, если случится ситуация, когда будет необходимо локализовать необычную
+ошибку в приложении, можно воспользоваться одним из указанных способов.
+
+[tddguide]: test_driven_development.html
