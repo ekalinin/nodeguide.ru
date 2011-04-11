@@ -43,7 +43,7 @@ app.get('/guide/:folder/:name', function(req, res){
         fs.readFile(filename, 'utf8', function (err, data) {
             res.render('guide', {
                 pageTitle: 'Руководство: ...',
-                markdownHTML: data
+                markdownHTML: data || 'ooops...'
             });
         });
     });
