@@ -549,28 +549,30 @@ Hello World
 	  ></li
 	><li
 	><p
-	  >Предполагая, что проект содержит файл 'server.js', необходимо перейти в директорию, в которой содержится этот файл и наберите:</p
-	  ><pre class="shell"
-	  ><code
-	    >$ screen
-$ node server.js
-</code
-	    ></pre
+	  >Предполагая, что проект содержит файл 'server.js', необходимо перейти в директорию, в которой содержится этот файл и выполнить:</p
 	  ></li
 	></ol
+      ><pre class="shell"
+      ><code
+	>$ screen
+$ node server.js
+</code
+	></pre
       ><p
-      >This invokes your 'server.js' program inside a so called screen session. Screen is a tool that provides you with a shell that remains its state, even when you close the terminal app you used to login to your server.</p
+      >Этот пример запускает 'server.js' внутри screen-сессии. <a href="http://ru.wikipedia.org/wiki/GNU_Screen"
+	>Screen</a
+	> - это утилита, предоставляющая возможность сохранять состояние shell'a даже в случае, если закрыт терминал/консоль, через который происходило соединение с сервером.</p
       ><p
-      >So you can now safely close your terminal app, and your 'server.js' will continue running. If you want to monitor it, you can log into your server again, and type:</p
+      >Таким образом, теперь можно безопасно закрыть терминал/консоль (из screen выходить через control-a + d), а 'server.js' при этом продолжит работать в screen-сессии. Если есть необходимость проверить работу приложения, можно снова соединиться с сервером и выполнить:</p
       ><pre class="shell"
       ><code
 	>$ screen -r
 </code
 	></pre
       ><p
-      >This will reconnect you to the backgrounded shell running your program.</p
+      >Эта команда восстановит соединение с shell'ом, в котором в фоне работает 'server.js'.</p
       ><p
-      >However, this approach is only recommended for experimental deployments. If your node applications crashes at some point, screen will not try to restart it, so don't use this method for production applications.</p
+      >Однако, этот подход рекомендуется только для экспериментального deployment'a. Так как, если в приложении произойдет сбой, screen не попытается перезапустить его. Соответственно, для production окружения этот метод котегорически не рекомендуется.</p
       ></div
     ><div id="joyent-no.de"
     ><h3
