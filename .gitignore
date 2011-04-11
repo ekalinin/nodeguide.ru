@@ -1,3 +1,4 @@
 /guides/build/
+.nodester.appconfig
 *.swp
 .*.swp

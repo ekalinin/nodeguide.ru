@@ -14,7 +14,7 @@ guides/build/%.html : guides/src/%.pdc
 		-o $@
 
 deploy: html
-	git push joyent master
+	git push nodester master
 	git push origin master
 
 dev: html
