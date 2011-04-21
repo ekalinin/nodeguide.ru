@@ -1,0 +1,456 @@
+# Руководство по стилю кода в Node.js от Felix'a
+
+В настоящий момент не существует официального документа, который бы
+регламентировал стиль кода в node.js приложениях. Это руководство - моя 
+попытка донести до читателя набор подходов, позволяющих создавать
+прекрасное и целостное ПО.
+
+Руководство предполагает, что читатель работает исключительно в node.js.
+Если предполагается запуск кода в браузере или каком-либо другом окружении,
+то некоторые пукнты текста можно игнорировать.
+
+Так же следует обратить внимание, что и node.js, и многие пакеты для него,
+имеют свои собственные соглашения о стиле кода, которые не всегда совпадают.
+Таким образом, если Вы собираетесь вносить клад в код какого-либо пакета, то
+следуйте соглашению о стиле этого пакета.
+
+## Табуляция vs Пробелы
+
+Начнем с религиозных проблем. Наш [великодушный диктатор][ryah] выбрал при 
+разработке ядра node.js отступ в 2 пробела. Таким образом, было бы хорошо,
+если бы вы так же последовали его примеру.
+
+[ryah]: community.html#ryan-dahl
+
+## Точка с запятой
+
+Есть [мятежные силы][isaac], которые пытаются украсть у вас точки с запятой.
+Но не совершайте ошибок! Наша традиционная культура все еще [живет][hnsemicolons].
+Так что следуйте за сообществом и пользуйтесь точками с запятыми!
+
+[isaac]: community.html#isaac-schlueter
+[hnsemicolons]: http://news.ycombinator.com/item?id=1547647
+
+## Редакторы
+
+Вы можете использовать любой редактор. Однако было бы удобно, чтобы он умел
+подсвечивать синтаксис JavaScript'a и выполнять в среде node.js редактируемый
+файл. [Vim][vim], конечно, не поможет вам впечатлить девушку, но зато он угодит
+нашему [великодушному пожизненному диктатору][bdfl] и ваш дедушка его тоже одобрит.
+
+Я пишу этот документ в Notes на моем iPad'e, но это все потому, что я сейчас 
+нахожусь на пляже в Тайланде. Так что, вполне вероятно, что ваше собственное
+рабочее окружение повлияет на ваш выбор редактора.
+
+[vim]: http://www.vim.org/
+[bdfl]: http://en.wikipedia.org/wiki/BDFL
+
+## Концевые пробелы
+
+Точно так же, как вы чистите зубы после еды, вы должны подчищать конечные 
+пробелы в ваших JavaScript файлах перед тем, как сделать коммит. Иначе гнилой
+запах небрежности и пренебрежения разгонить в итоге авторов и/или коллег.
+
+## Длинна строки
+
+Следует ограничивать строки 80-ю символами. Да, экраны за последние несколько
+лет стали больше, но ваш мозг не стал. Используйте дополнительное место для 
+разбиения экрана. Ваш же редактор это позволяет, не так ли?
+
+## Кавычки
+
+Используйте одиночные кавычки везде, кроме случаев редактирования JSON.
+
+*Хорошо:*
+
+~~~ {.javascript}
+var foo = 'bar';
+~~~
+
+*Плохо:*
+
+~~~ {.javascript}
+var foo = "bar";
+~~~
+
+## Фигурные скобки
+
+Располагайте открывающую скобку на той же линии, что и выражение.
+
+*Хорошо:*
+
+~~~ {.javascript}
+if (true) {
+  console.log('winning');
+}
+~~~
+
+*Плохо:*
+
+~~~ {.javascript}
+if (true)
+{
+  console.log('losing');
+}
+~~~
+
+Так же обратите внимание на использование пробела перед и после условного
+выражения.
+
+## Объявление переменных
+
+Объявляйте по одной переменной с каждым ключевым словом var. Такой подход
+облегчает переупорядочивание строк. Не обращайте внимания на [Crockford]
+[crockfordconvention]'a по этому поводу, и размещайте объявления там, где 
+они имеют смысл.
+
+*Хорошо:*
+
+~~~ {.javascript}
+var keys = ['foo', 'bar'];
+var values = [23, 42];
+
+var object = {};
+while (items.length) {
+  var key = keys.pop();
+  object[key] = values.pop();
+}
+~~~
+
+*Плохо:*
+
+~~~ {.javascript}
+var keys = ['foo', 'bar'],
+    values = [23, 42],
+    object = {},
+    key;
+
+while (items.length) {
+  key = keys.pop();
+  object[key] = values.pop();
+}
+~~~
+
+[crockfordconvention]: http://javascript.crockford.com/code.html
+
+## Имена переменных и свойств
+
+Переменные и свойства должны использовать [нижний верблюжий регистр]
+[camelcase] / [рус][camelcaseru]. Кроме того, они должны быть наглядными.
+Одиночных символов и необычных аббревиатур следует избегать.
+
+*Хорошо:*
+
+~~~ {.javascript}
+var adminUser = db.query('SELECT * FROM users ...');
+~~~
+
+*Плохо:*
+
+~~~ {.javascript}
+var admin_user = d.query('SELECT * FROM users ...');
+~~~
+
+[camelcase]: http://en.wikipedia.org/wiki/camelCase#Variations_and_synonyms
+[camelcaseru]: http://ru.wikipedia.org/wiki/CamelCase
+
+## Имена классов
+
+Имена классов должны использовать [верхний верблюжий регистр][camelcase].
+
+*Хорошо:*
+
+~~~ {.javascript}
+function BankAccount() {
+}
+~~~
+
+*Плохо:*
+
+~~~ {.javascript}
+function bank_Account() {
+}
+~~~
+
+## Константы
+
+Константы должны объявляться как обычные переменные или статические свойства
+классов. Все буквы должны быть в верхнем регистре.
+
+Node.js / V8 поддерживает расширение [const][const] от mozilla, но, к сожалению,
+оно не применимо к членам класса, равно как и часть любого стандарта ECMA.
+
+*Хорошо:*
+
+~~~ {.javascript}
+var SECOND = 1 * 1000;
+
+function File() {
+}
+File.FULL_PERMISSIONS = 0777;
+~~~
+
+*Плохо:*
+
+~~~ {.javascript}
+const SECOND = 1 * 1000;
+
+function File() {
+}
+File.fullPermissions = 0777; 
+~~~
+
+[const]: https://developer.mozilla.org/en/JavaScript/Reference/Statements/const
+
+## Создание Объекта / Массива
+
+Используйте завершающие запятые и *короткие* обявления на одной строке. 
+Ключи помещайте в кавычки только тогда, когда пожалуется интерпретатор. 
+
+*Хорошо:*
+
+~~~ {.javascript}
+var a = ['hello', 'world'];
+var b = {
+  good: 'code',
+  'is generally': 'pretty',
+};
+~~~
+
+*Плохо:*
+
+~~~ {.javascript}
+var a = [
+  'hello', 'world'
+];
+var b = {"good": 'code'
+        , is generally: 'pretty'
+        };
+~~~
+
+## Оператор равенства
+
+
+Программирование - это вам не запоминание [глупых правил][comparisonoperators].
+Используйте тройной оператор равенства, так как только он будет работать так,
+как ожидается.
+
+*Хорошо:*
+
+~~~ {.javascript}
+var a = 0;
+if (a === '') {
+  console.log('winning');
+}
+
+~~~
+
+*Плохо:*
+
+~~~ {.javascript}
+var a = 0;
+if (a == '') {
+  console.log('losing');
+}
+~~~
+
+[comparisonoperators]: https://developer.mozilla.org/en/JavaScript/Reference/Operators/Comparison_Operators
+
+## Расширение прототипов
+
+Не расширяйте прототипы всех подряд объектов, особенно встроенных. В аду есть
+специальное место, в котором вас будут ждать, если вы не будете следовать этому
+правилу.
+
+*Хорошо:*
+
+~~~ {.javascript}
+var a = [];
+if (!a.length) {
+  console.log('winning');
+}
+~~~
+
+*Плохо:*
+
+~~~ {.javascript}
+Array.prototype.empty = function() {
+  return !this.length;
+}
+
+var a = [];
+if (a.empty()) {
+  console.log('losing');
+}
+~~~
+
+## Условия
+
+Все нетривиальные условия должны присваиваться переменной.
+
+*Хорошо:*
+
+~~~ {.javascript}
+var isAuthorized = (user.isAdmin() || user.isModerator());
+if (isAuthorized) {
+  console.log('winning');
+}
+~~~
+
+*Плохо:*
+
+~~~ {.javascript}
+if (user.isAdmin() || user.isModerator()) {
+  console.log('losing');
+}
+~~~
+
+## Размер функций
+
+Функции должны быть короткими. Хорошая функция должна помещаться на слайд,
+который будет хорошо читаться людми, сидящими на последнем ряду в большой
+комнате.
+
+## Оператор return
+
+Возвращайте значение из функции как можно раньше. Тем самым будет исключаться
+большая вложенность if-else конструкций.
+
+*Хорошо:*
+
+~~~ {.javascript}
+function isPercentage(val) {
+  if (val < 0) {
+    return false;
+  }
+
+  if (val > 100) {
+    return false;
+  }
+
+  return true;
+}
+~~~
+
+*Плохо:*
+
+~~~ {.javascript}
+function isPercentage(val) {
+  if (val >= 0) {
+    if (val < 100) {
+      return true;
+    } else {
+      return false;
+    }
+  } else {
+    return false;
+  }
+}
+~~~
+
+Или для этого конкретного примера этот подход так же применим:
+
+~~~ {.javascript}
+function isPercentage(val) {
+  var isInRange = (val >= 0 && val <= 100);
+  return isInRange;
+}
+~~~
+
+## Именованные замыкания
+
+Не бойтесь давать замыканиям имена. Это показывает, что вы заботитесь о них.
+Результатом этой заботы будет более полная трассировка стека:
+
+*Хорошо:*
+
+~~~ {.javascript}
+req.on('end', function onEnd() {
+  console.log('winning');
+});
+~~~
+
+*Плохо:*
+
+~~~ {.javascript}
+req.on('end', function() {
+  console.log('losing');
+});
+~~~
+
+## Nested Closures
+
+Use closures, but don't nest them. Otherwise your code will become a mess.
+
+*Right:*
+
+~~~ {.javascript}
+setTimeout(function() {
+  client.connect(afterConnect);
+}, 1000);
+
+function afterConnect() {
+  console.log('winning');
+}
+~~~
+
+*Wrong:*
+
+~~~ {.javascript}
+setTimeout(function() {
+  client.connect(function() {
+    console.log('losing');
+  });
+}, 1000);
+~~~
+
+## Callbacks
+
+Since node is all about non-blocking I/O, functions generally return their
+results using callbacks. The convention used by the node core is to reserve the
+first parameter of any callback for an optional error object.
+
+You should use the same approach for your own callbacks.
+
+## Object.freeze, Object.preventExtensions, Object.seal, with, eval
+
+Crazy shit that you will probably never need. Stay away from it.
+
+## Getters and setters
+
+Do not use setters, they cause more problems for people who try to use your
+software than they can solve.
+
+Feel free to use getters that are free from [side effects][sideeffect], like
+providing a length property for a collection class.
+
+[sideeffect]: http://en.wikipedia.org/wiki/Side_effect_(computer_science)
+
+## EventEmitters
+
+Node.js ships with a simple EventEmitter class that can be included from the
+'events' module:
+
+~~~ {.javascript}
+var EventEmitter = require('events').EventEmitter;
+~~~
+
+When creating complex classes, it is common to inherit from this EventEmitter
+class to emit events. This is basically a simple implementation of the
+[Observer pattern][].
+
+[Observer pattern]: http://en.wikipedia.org/wiki/Observer_pattern
+
+However, I strongly recommend that you never listen to the events of your own
+class from within it. It isn't natural for an object to observe itself. It often
+leads to undesirable exposure to implementation details, and makes your code
+more difficult to follow.
+
+## Inheritance / Object oriented programming
+
+Inheritance and object oriented programming are subjects by themselves.
+If you're interested in following this popular programming model, please read my
+[Object oriented programming guide][].
+
+[Object oriented programming guide]: object_oriented_programming.html
+

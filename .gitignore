@@ -1,3 +1,4 @@
 .nodester.appconfig
 *.swp
+*eng*
 .*.swp
