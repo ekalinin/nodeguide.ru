@@ -793,16 +793,16 @@
 	 /></code
       ></pre
     ></div
-  ><div id="nested-closures"
+  ><div id="&#1074;&#1083;&#1086;&#1078;&#1077;&#1085;&#1085;&#1099;&#1077;-&#1079;&#1072;&#1084;&#1099;&#1082;&#1072;&#1085;&#1080;&#1103;"
   ><h2
     ><a href="#TOC"
-      >Nested Closures</a
+      >Вложенные замыкания</a
       ></h2
     ><p
-    >Use closures, but don't nest them. Otherwise your code will become a mess.</p
+    >Не используйте вложенные замыкания. Иначе ваш код превратится в кашу</p
     ><p
     ><em
-      >Right:</em
+      >Хорошо:</em
       ></p
     ><pre class="sourceCode javascript"
     ><code
@@ -831,7 +831,7 @@
       ></pre
     ><p
     ><em
-      >Wrong:</em
+      >Плохо:</em
       ></p
     ><pre class="sourceCode javascript"
     ><code
@@ -857,15 +857,15 @@
 	 /></code
       ></pre
     ></div
-  ><div id="callbacks"
+  ><div id="&#1092;&#1091;&#1085;&#1082;&#1094;&#1080;&#1080;-&#1086;&#1073;&#1088;&#1072;&#1090;&#1085;&#1086;&#1075;&#1086;-&#1074;&#1099;&#1079;&#1086;&#1074;&#1072;-callbacks"
   ><h2
     ><a href="#TOC"
-      >Callbacks</a
+      >Функции обратного вызова (callbacks)</a
       ></h2
     ><p
-    >Since node is all about non-blocking I/O, functions generally return their results using callbacks. The convention used by the node core is to reserve the first parameter of any callback for an optional error object.</p
+    >Так как node.js прежде всего сосредоточен на неблокирующем вводе/выводе, то функции в основном возвращают свой результат используя callback'и. В ядре node.js принято соглашение, что первый параметр любого callback'а всегда является необязательным объектом-ошибкой (error object).</p
     ><p
-    >You should use the same approach for your own callbacks.</p
+    >Вам так же следует пользоваться этим подходом для ваших callback'ов.</p
     ></div
   ><div id="object.freeze-object.preventextensions-object.seal-with-eval"
   ><h2
@@ -873,27 +873,29 @@
       >Object.freeze, Object.preventExtensions, Object.seal, with, eval</a
       ></h2
     ><p
-    >Crazy shit that you will probably never need. Stay away from it.</p
+    >Абсолютное безумие, которое, вероятно, никогда вами не будет использовано. Держитесь от этого дела подальше.</p
     ></div
-  ><div id="getters-and-setters"
+  ><div id="getter&#1099;-&#1080;-setter&#1099;"
   ><h2
     ><a href="#TOC"
-      >Getters and setters</a
+      >Getter'ы и setter'ы</a
       ></h2
     ><p
-    >Do not use setters, they cause more problems for people who try to use your software than they can solve.</p
+    >Не используйте setter'ы. У людей, которые будут пытаться использовать ваш код, они обязательно вызовут массу проблем.</p
     ><p
-    >Feel free to use getters that are free from <a href="http://en.wikipedia.org/wiki/Side_effect_(computer_science)"
-      >side effects</a
-      >, like providing a length property for a collection class.</p
+    >Getter'ы же - напротив, можно совершенно спокойно использовать в своем коде. Так как они являются чистыми функциями и свободны от <a href="http://en.wikipedia.org/wiki/Side_effect_(computer_science)"
+      >побочных эффектов</a
+      > (<a href="http://ru.wikipedia.org/wiki/%D0%9F%D0%BE%D0%B1%D0%BE%D1%87%D0%BD%D1%8B%D0%B9_%D1%8D%D1%84%D1%84%D0%B5%D0%BA%D1%82_(%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5)"
+      >рус</a
+      >). Типовым примером является предоставление свойтсва длины для класса коллекции.</p
     ></div
-  ><div id="eventemitters"
+  ><div id="eventemitter&#1099;"
   ><h2
     ><a href="#TOC"
-      >EventEmitters</a
+      >EventEmitter'ы</a
       ></h2
     ><p
-    >Node.js ships with a simple EventEmitter class that can be included from the 'events' module:</p
+    >Node.js включает в себя среди прочего простой класс EventEmitter, который может быть подключен из модуля 'events':</p
     ><pre class="sourceCode javascript"
     ><code
       ><span class="kw"
@@ -906,20 +908,22 @@
 	 /></code
       ></pre
     ><p
-    >When creating complex classes, it is common to inherit from this EventEmitter class to emit events. This is basically a simple implementation of the <a href="http://en.wikipedia.org/wiki/Observer_pattern"
-      >Observer pattern</a
-      >.</p
+    >При создании классов, которые должны поддерживать события, их обычно наследуют от этого класса EventEmitter. В основном это простая реализация <a href="http://en.wikipedia.org/wiki/Observer_pattern"
+      >шаблона Observer</a
+      > (<a href="http://ru.wikipedia.org/wiki/%D0%9D%D0%B0%D0%B1%D0%BB%D1%8E%D0%B4%D0%B0%D1%82%D0%B5%D0%BB%D1%8C_(%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD_%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F)"
+      >рус</a
+      >)</p
     ><p
-    >However, I strongly recommend that you never listen to the events of your own class from within it. It isn't natural for an object to observe itself. It often leads to undesirable exposure to implementation details, and makes your code more difficult to follow.</p
+    >Однако, я настоятельно не рекомендую слушать события объекта изнутри самого объекта. Это не естественно: слушать самого себя. Зачастую, это ведет к нежелательному открытию деталей реализации и усложнению сопровождения кода.</p
     ></div
-  ><div id="inheritance-object-oriented-programming"
+  ><div id="&#1085;&#1072;&#1089;&#1083;&#1077;&#1076;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077;-&#1086;&#1073;&#1098;&#1077;&#1082;&#1090;&#1085;&#1086;-&#1086;&#1088;&#1080;&#1077;&#1085;&#1090;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;&#1085;&#1086;&#1077;-&#1087;&#1088;&#1086;&#1075;&#1088;&#1072;&#1084;&#1080;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077;"
   ><h2
     ><a href="#TOC"
-      >Inheritance / Object oriented programming</a
+      >Наследование / Объектно-ориентированное програмиирование</a
       ></h2
     ><p
-    >Inheritance and object oriented programming are subjects by themselves. If you're interested in following this popular programming model, please read my <a href="object_oriented_programming.html"
-      >Object oriented programming guide</a
+    >Наследование и объектно-ориентированное програмиирование являются обширными темами. Если вы интересуетесь этими популярными подходами программирования, то почитатйте, пожалуйста, мое <a href="object_oriented_programming.html"
+      >Руководство по объектно-ориентированному программированию</a
       >.</p
     ></div
   ></div

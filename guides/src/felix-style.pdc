@@ -378,11 +378,11 @@ req.on('end', function() {
 });
 ~~~
 
-## Nested Closures
+## Вложенные замыкания
 
-Use closures, but don't nest them. Otherwise your code will become a mess.
+Не используйте вложенные замыкания. Иначе ваш код превратится в кашу
 
-*Right:*
+*Хорошо:*
 
 ~~~ {.javascript}
 setTimeout(function() {
@@ -394,7 +394,7 @@ function afterConnect() {
 }
 ~~~
 
-*Wrong:*
+*Плохо:*
 
 ~~~ {.javascript}
 setTimeout(function() {
@@ -404,53 +404,59 @@ setTimeout(function() {
 }, 1000);
 ~~~
 
-## Callbacks
+## Функции обратного вызова (callbacks)
 
-Since node is all about non-blocking I/O, functions generally return their
-results using callbacks. The convention used by the node core is to reserve the
-first parameter of any callback for an optional error object.
+Так как node.js прежде всего сосредоточен на неблокирующем вводе/выводе, то
+функции в основном возвращают свой результат используя callback'и. В ядре 
+node.js принято соглашение, что первый параметр любого callback'а всегда 
+является необязательным объектом-ошибкой (error object).
 
-You should use the same approach for your own callbacks.
+Вам так же следует пользоваться этим подходом для ваших callback'ов.
 
 ## Object.freeze, Object.preventExtensions, Object.seal, with, eval
 
-Crazy shit that you will probably never need. Stay away from it.
+Абсолютное безумие, которое, вероятно, никогда вами не будет использовано.
+Держитесь от этого дела подальше.
 
-## Getters and setters
+## Getter'ы и setter'ы
 
-Do not use setters, they cause more problems for people who try to use your
-software than they can solve.
+Не используйте setter'ы. У людей, которые будут пытаться использовать ваш
+код, они обязательно вызовут массу проблем.
 
-Feel free to use getters that are free from [side effects][sideeffect], like
-providing a length property for a collection class.
+Getter'ы же - напротив, можно совершенно спокойно использовать в своем коде.
+Так как они являются чистыми функциями и свободны от [побочных эффектов]
+[sideeffect] ([рус][sideeffectru]). Типовым примером является предоставление
+свойтсва длины для класса коллекции.
 
-[sideeffect]: http://en.wikipedia.org/wiki/Side_effect_(computer_science)
+[sideeffect]: http://en.wikipedia.org/wiki/Side_effect_(computer_science) 
+[sideeffectru]: http://ru.wikipedia.org/wiki/Побочный_эффект_(программирование) 
 
-## EventEmitters
+## EventEmitter'ы
 
-Node.js ships with a simple EventEmitter class that can be included from the
-'events' module:
+Node.js включает в себя среди прочего простой класс EventEmitter, который 
+может быть подключен из модуля 'events':
 
 ~~~ {.javascript}
 var EventEmitter = require('events').EventEmitter;
 ~~~
 
-When creating complex classes, it is common to inherit from this EventEmitter
-class to emit events. This is basically a simple implementation of the
-[Observer pattern][].
+При создании классов, которые должны поддерживать события, их обычно наследуют
+от этого класса EventEmitter. В основном это простая реализация [шаблона 
+Observer][Observer pattern] ([рус][observerpatternru])
 
 [Observer pattern]: http://en.wikipedia.org/wiki/Observer_pattern
+[observerpatternru]: http://ru.wikipedia.org/wiki/Наблюдатель_(шаблон_проектирования) 
 
-However, I strongly recommend that you never listen to the events of your own
-class from within it. It isn't natural for an object to observe itself. It often
-leads to undesirable exposure to implementation details, and makes your code
-more difficult to follow.
+Однако, я настоятельно не рекомендую слушать события объекта изнутри самого 
+объекта. Это не естественно: слушать самого себя. Зачастую, это ведет к
+нежелательному открытию деталей реализации и усложнению сопровождения кода.
 
-## Inheritance / Object oriented programming
+## Наследование / Объектно-ориентированное програмиирование
 
-Inheritance and object oriented programming are subjects by themselves.
-If you're interested in following this popular programming model, please read my
-[Object oriented programming guide][].
+Наследование и объектно-ориентированное програмиирование являются обширными
+темами. Если вы интересуетесь этими популярными подходами программирования,
+то почитатйте, пожалуйста, мое [Руководство по объектно-ориентированному 
+программированию][Object oriented programming guide].
 
 [Object oriented programming guide]: object_oriented_programming.html
 
