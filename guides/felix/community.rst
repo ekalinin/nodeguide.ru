@@ -1,0 +1,267 @@
+============================================
+Руководство по сообществу Node.js от Felix'a
+============================================
+
+Если вы только что прочитали :doc:`Руководство для начинающих <beginner>`
+и задумались об участии в сообществе node.js, то это рукводство для вас.
+
+IRC
+===
+
+IRC is a great place to discuss the virtues of vim vs. emacs, as well as getting
+support and interaction from people within the node.js community.
+
+The official irc channel for node.js is located on [chat.freenode.net][freenode]
+and named '#node.js' (yes, the dot is part of the name). There are usually ~500
+people in there these days.
+
+If you have a question, just go ahead and ask it. Depending on who's awake and
+paying attention, you often get great replies right away. Otherwise just stick
+around and wait for an hour or so. After that it's ok to ask your question
+again, in case you think it went by unnoticed.
+
+Oh, and you should always try to find your answer on the web first, but you [know
+that][lmgtfy], right?
+
+[freenode]: http://webchat.freenode.net/
+[lmgtfy]: http://lmgtfy.com/
+
+## Google Groups
+
+A lot of discussion around node.js takes place via google group mailing lists.
+The two official lists are:
+
+[nodejs](https://groups.google.com/forum/#!forum/nodejs)
+  ~ The 'nodejs' list is meant for general node.js questions and discussions. So
+    generally that's the one you want to use.
+[nodejs-dev](https://groups.google.com/forum/#!forum/nodejs-dev)
+  ~ If you have found a bug in node.js, or want to get involved in discussing
+    features & development, feel free to participate in the 'nodejs-dev' mailing
+    list. It's generally less noisy, and most of the core contributors follow it.
+
+## Twitter
+
+Since twitter cuts off tag names when it sees a dot character, many people use
+the tag '#nodejs' to highlight node.js related content on twitter. You can find
+the current stream of tweets via twitter's search function:
+
+[http://search.twitter.com/search?q=%23nodejs%20OR%20node.js](http://search.twitter.com/search?q=%23nodejs%20OR%20node.js)
+
+Since not everybody is tagging their content, the above query also includes
+results for the term 'node.js' itself.
+
+## Community Members
+
+If you are curious about the people driving the node.js development & ecosystem,
+here is a list of a few people whose names you should know.
+
+### Ryan Dahl
+
+Ryan is the creator, maintainer and [BDFL][bdfl] of node.js. This means any
+commits that go into node.js are reviewed by him, and he's the only one who
+directly pushes to the node repository.
+
+While Ryan will generally try to respond to questions on the mailing list and
+IRC, he's a very busy guy. So don't be upset if he doesn't answer your direct
+questions right away, there are usually other people around who can help as
+well.
+
+Ryan is currently working for [Joyent][joyent], a company that provides great
+heroku-style [node.js hosting][nodehosting], and is the official corporate
+sponsor for node.js.
+
+[bdfl]: http://en.wikipedia.org/wiki/BDFL
+[joyent]: http://joyent.com/
+[nodehosting]: http://no.de/
+
+* IRC Nick: ryah
+* Twitter: [@ryah](http://twitter.com/ryah)
+* GitHub: [ry](https://github.com/ry)
+* Blog: [blog.nodejs.org](http://blog.nodejs.org/)
+* Where: San Francisco, USA
+
+### Isaac Schlueter
+
+Isaac is the author of [npm][npm], the de-facto package manager used by the
+node.js community. He also works for Joyent and is a big contributor to the
+node.js core as well. In his spare time he is trying to liberate the JavaScript
+community from [semicolon slavery][semicolon].
+
+* IRC Nick: isaacs
+* Twitter: [@izs](http://twitter.com/izs)
+* GitHub: [isaacs](https://github.com/isaacs)
+* Blog: [blog.izs.me](http://blog.izs.me/)
+* Where: San Francisco, USA
+
+[npm]: http://npmjs.org/
+[semicolon]: http://blog.izs.me/post/3393190720/how-this-works
+
+### Bert Belder
+
+Bert is the main developer working on windows support for node, and also one
+of the biggest overall contributors to the project.
+
+* IRC Nick: piscisaureus
+* Twitter: [@piscisaureus](http://twitter.com/piscisaureus)
+* GitHub: [piscisaureus](https://github.com/piscisaureus)
+* Where: Netherlands
+
+### TJ Holowaychuk
+
+TJ is the author of [express][express], [jade][jade] and many other popular
+node.js libraries.
+
+* Twitter: [@tjholowaychuk](http://twitter.com/tjholowaychuk)
+* GitHub: [visionmedia](https://github.com/visionmedia)
+* Blog: [tjholowaychuk.com](http://tjholowaychuk.com/)
+* Where: Victoria, BC, Canada
+
+[express]: http://expressjs.com/
+[jade]: http://jade-lang.com/
+
+### Tim Caswell
+
+Tim is the original author of [connect][connect], and has been contributing to
+node.js since the early days. He currently works for HP (formerly Palm), and
+is also known for the collaborative blog [howtonode.org][howtonode].
+
+* IRC Nick: creationix
+* Twitter: [@creationix](http://twitter.com/creationix)
+* GitHub: [creationix](https://github.com/creationix)
+* Blog: [howtonode.org][howtonode]
+* Where: San Francisco, USA
+
+[howtonode]: http://howtonode.org/
+[connect]: https://github.com/senchalabs/connect
+
+### Felix Geisendörfer
+
+Yours truly, who is very active in the node.js core development, and works on
+projects such as [formidable][formidable], [mysql][mysql] and this very guide.
+Besides node core development, I'm also the co-founder of a node.js startup
+providing file uploading & video encoding as a service called
+[transloadit.com][transloadit].
+
+* IRC Nick: felixge
+* Twitter: [@felixge](http://twitter.com/felixge)
+* GitHub: [felixge](https://github.com/felixge)
+* Blog: [debuggable.com/blog](http://debuggable.com/blog)
+* Where: Berlin, Germany
+
+[formidable]: https://github.com/felixge/node-formidable
+[mysql]: https://github.com/felixge/node-mysql
+[transloadit]: http://transloadit.com/
+
+### Mikeal Rogers
+
+Mikeal is the author of [request][request], and is very active in the
+development of node.js, as well as the community.
+
+* IRC Nick: mikeal
+* Twitter: [@mikeal](http://twitter.com/mikeal)
+* GitHub: [mikeal](https://github.com/mikeal)
+* Blog: [mikealrogers.com](http://www.mikealrogers.com/)
+* Where: San Francisco, USA
+
+[request]: https://github.com/mikeal/request
+
+### Alexis Sellier
+
+Alexis is a JavaScript mastermind who is responsible for projects such as
+[less.js][lessjs], [vows][vows] and many others.
+
+* IRC Nick: cloudhead
+* Twitter: [@cloudhead](http://twitter.com/cloudhead)
+* GitHub: [cloudhead](https://github.com/cloudhead)
+* Blog: [cloudhead.io](http://cloudhead.io/)
+* Where: Montreal, QC, Canada
+
+[lessjs]: http://lesscss.org/
+[vows]: http://vowsjs.org/
+
+### Jeremy Ashkenas
+
+Jeremy is the author of [CoffeeScript][], [underscore][], [backbone][],
+[docco][] and many other popular node.js / JavaScript libraries. He is
+also running a node.js startup called [DocumentCloud][].
+
+* IRC Nick: jashkenas
+* Twitter: [@jashkenas](http://twitter.com/jashkenas)
+* GitHub: [jashkenas](https://github.com/jashkenas), [documentcloud](https://github.com/documentcloud)
+* Where: New York City, USA
+
+[CoffeeScript]: https://github.com/jashkenas/coffee-script
+[underscore]: https://github.com/documentcloud/underscore
+[backbone]: https://github.com/documentcloud/backbone
+[docco]: https://github.com/jashkenas/docco
+[DocumentCloud]: http://www.documentcloud.org/
+
+### Jed Schmidt
+
+Jed is a japanese translator who moonlights as a JavaScript ninja. His node.js
+framework [fab.js][fabjs] takes a radical new approach to structuring your JS
+code, and includes all kinds of surprising aspects, exceeding most people's
+understanding of JavaScript by far.
+
+* IRC Nick: jedschmidt
+* Twitter: [@jedschmidt](http://twitter.com/jedschmidt)
+* GitHub: [jed](https://github.com/jed)
+* Blog: [jedschmidt.com](http://jedschmidt.com/)
+* Where: Tokyo, Japan
+
+[fabjs]: http://fabjs.org/
+
+### Marak Squires
+
+Marak who goes by the alias Jim Bastard, is mostly known for pumping out
+dozens of node.js libraries per month, an ability only exceeded by his artful
+use of profanity and trolling people. Don't get upset if he rubs you the wrong
+way, he's a nice guy, but you just shouldn't challenge him to a Monkey Island
+style sword duel.
+
+* IRC Nick: jimbastard
+* Twitter: [@maraksquires](http://twitter.com/maraksquires)
+* GitHub: [marak](https://github.com/marak)
+* Blog: [blog.nodejitsu.com](http://blog.nodejitsu.com/)
+* Where: New York City, USA
+
+### Peteris Krumins
+
+Some of you may know Peter from his popular blog [catomat.net][catomat].
+Together with James Halliday, he has recently started a node.js startup called
+[browserling][browserling], which has also led to tons of open source modules
+from the two of them.
+
+* IRC Nick: pkrumins
+* Twitter: [@pkrumins](http://twitter.com/pkrumins)
+* GitHub: [pkrumins](https://github.com/pkrumins)
+* Blog: [catomat.net][catomat]
+* Where:  Riga, Latvia
+
+[catomat]: http://catonmat.net/
+[browserling]: http://browserling.com/
+
+### James Halliday
+
+James is the author of many popular node.js libraries, such as [dnode][dnode],
+[optimist][optimist] and [browserify][browserify]. He is also known for drawing
+cute robots for [browserling][browserling] which he runs with Peteris Krumins.
+
+* IRC Nick: substack
+* Twitter: [@substack](http://twitter.com/substack)
+* GitHub: [substack](https://github.com/substack)
+* Blog: [substack.net](http://substack.net/)
+* Where: Oakland, California, USA
+
+[dnode]: https://github.com/substack/dnode
+[optimist]: https://github.com/substack/node-optimist
+[browserify]: https://github.com/substack/node-browserify
+
+### Your name here
+
+This list is by no means exhaustive and for most parts in random order. My goal
+is to keep this list short enough so it doesn't become a list of all [node.js
+users][nodejsusers], but there are probably a few important names that I forgot. So if you
+would like to see your name here as well, just email me.
+
+[nodejsusers]: https://github.com/joyent/node/wiki/Node-Users
