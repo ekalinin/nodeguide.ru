@@ -1,27 +1,41 @@
 !!! 5
 html(lang="ru")
   head
-    title= pageTitle
+    title!=doc.title
+    meta(charset='utf-8')
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/pygments.css')
     /if IE
         script(src="http://html5shiv.googlecode.com/svn/trunk/html5.js", 
                type="application/javascript")
   body
-    a(href='http://github.com/ekalinin/nodeguide.ru') 
-        img(alt='Fork me on GitHub', id='ribbon' 
-            src='http://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png')
-    #wrapper
-        #container
-            ul#menu
-                li
-                    a(href='/') Главная
-                //-li
-                //-    a(href='#') Руководства
-                //-li 
-                //-    a(href='#') Видео
-                //-li 
-                //-    a(href='#') О проекте
-            #innder!= body
 
-    script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js", 
-           type="application/javascript")
+    div.document
+        a(href='http://github.com/ekalinin/nodeguide.ru') 
+            img(alt='Fork me on GitHub',
+                style='position: fixed; top: 0; right: 0; border: 0;'
+                src='http://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png')
+        div.documentwrapper
+            div.bodywrapper
+                div.body
+                    !{doc.body}
+        div.sphinxsidebar
+            div.sphinxsidebarwrapper
+                - if (doc.rellinks)
+                    h3 Связанные темы
+                    ul
+                        li
+                            a(href='/') Главная
+                        - each link in doc.rellinks
+                            li
+                                - if (link[0] != 'genindex')
+                                    a(href='/doc/'+link[0]) !{link[1]}
+                - if (doc.toc)
+                    h3 Оглавление
+                    !{doc.toc}
+        div.clearer
+
+    div.footer
+
+    //- script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js", 
+    //-       type="application/javascript")
