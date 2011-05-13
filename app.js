@@ -6,8 +6,12 @@
 var express = require('express');
 var path = require("path");
 var fs = require("fs"); 
+var os = require("os");
 
 var app = module.exports = express.createServer();
+
+var env;
+var env_file = path.join(__dirname, 'build', 'json', 'globalcontext.json');
 
 // Configuration
 app.configure( function() {
@@ -21,6 +25,9 @@ app.configure( function() {
     app.use(express.errorHandler({ dumpExceptions: true, showStack: true })); 
 });
 
+fs.readFile(env_file, 'utf8', function (err, data) {
+    env = JSON.parse(data);
+});
 
 // Routes
 app.get('/', function (req, res) { res.redirect('/doc/'); });
@@ -40,13 +47,16 @@ function doc(req, res, next) {
                     title:  'Документ не найден!',
                     body:   'Документ не найден :( <br/> ' +
                             'Попробуйте, пожалуйста, <a href="/"> сначала </a>.',
-                }
+                },
+                env: env,
+                host: os.hostname()
             });
             return;
         }
         // found
         fs.readFile(filename, 'utf8', function (err, data) {
-            res.render('layout', { doc: JSON.parse(data) });
+            res.render('layout', { doc: JSON.parse(data),
+                env: env, host: os.hostname()});
         });
     });
 }

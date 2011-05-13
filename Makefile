@@ -23,7 +23,7 @@ deploy: json
 	git push nodester master
 	git push origin master
 
-dev: json
+dev:
 	node app.js
 
 clean:
