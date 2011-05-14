@@ -49,14 +49,14 @@ function doc(req, res, next) {
                             'Попробуйте, пожалуйста, <a href="/"> сначала </a>.',
                 },
                 env: env,
-                host: os.hostname()
+                host: req.connection.remoteAddress
             });
             return;
         }
         // found
         fs.readFile(filename, 'utf8', function (err, data) {
             res.render('layout', { doc: JSON.parse(data),
-                env: env, host: os.hostname()});
+                env: env, host: req.connection.remoteAddress});
         });
     });
 }
