@@ -1,4 +1,3 @@
-
 /**
  * Module dependencies.
  */
@@ -37,7 +36,9 @@ app.get('/doc/:name', doc);
 app.get('/doc/:dir/:name', doc);
 function doc(req, res, next) {
     var filename = path.join(__dirname, 'build', 'json', req.params.dir,
-                        (req.params.name ? req.params.name : 'index') + '.fjson');
+                        (req.params.name ? req.params.name : 'index') +
+                        '.fjson');
+    var port = app.address().port;
 
     path.exists(filename, function(exists) {
         // doc not found
@@ -49,14 +50,14 @@ function doc(req, res, next) {
                             'Попробуйте, пожалуйста, <a href="/"> сначала </a>.',
                 },
                 env: env,
-                host: req.connection.remoteAddress
+                port: port
             });
             return;
         }
         // found
         fs.readFile(filename, 'utf8', function (err, data) {
-            res.render('layout', { doc: JSON.parse(data),
-                env: env, host: req.connection.remoteAddress});
+            res.render('layout', { doc: JSON.parse(data), env: env,
+                            port: port});
         });
     });
 }
