@@ -318,8 +318,8 @@ removeListener_. Следует обратить внимание, что арг
 .. _once(): http://nodejs.org/docs/v0.4.5/api/all.html#emitter.once
 .. _removeListener: http://nodejs.org/docs/v0.4.5/api/all.html#emitter.removeListener
 
-Что дальше ?
-============
+Что дальше?
+===========
 
 Теперь у вас есть базовые знания о node.js и сейчас лучше попробовать
 написать самостоятельно несколько небольших программ. Лучшее место для

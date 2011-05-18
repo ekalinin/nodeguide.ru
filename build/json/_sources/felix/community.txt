@@ -61,6 +61,8 @@ Twitter
 Если Вас интересуют люди, управляющие разработкой и экосистемой node.js, то
 далее будет список тех, чьи имена Вы должны знать.
 
+.. _community-ryan-dahl:
+
 Ryan Dahl
 ---------
 
@@ -87,6 +89,8 @@ Ryan Dahl
 * GitHub: `ry <https://github.com/ry>`_
 * Блог: `blog.nodejs.org <http://blog.nodejs.org/>`_
 * Откуда: San Francisco, USA
+
+.. _community-isaac-schlueter:
 
 Isaac Schlueter
 ---------------

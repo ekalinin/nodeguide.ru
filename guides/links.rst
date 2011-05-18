@@ -11,18 +11,18 @@ Node.js и JavaScript.
 Русскоязычные
 -------------
 
-- `javascript.ru - профессиональный JavaScript <http://javascript.ru>`_
-- `nodejs.ru - блог о node.js, форум и перевод документации <http://nodejs.ru>`_
+- `javascript.ru  <http://javascript.ru>`_ - профессиональный JavaScript
+- `nodejs.ru <http://nodejs.ru>`_ - блог о node.js, форум и перевод документации
 
 Англоязычные
 ------------
 
-- `Mastering Node <http://visionmedia.github.com/masteringnode/book.html>`_, `GitHub <https://github.com/visionmedia/masteringnode>`_
-- `NodeNerd - Node.js links and step-by-step tutorials <http://nodenerd.net>`_
-- `NodeNode - A blog about news, tutorials, tips, videos, and all other things node.js <http://nodenode.com/>`_
-- `NodeTuts - Video tutorials about node.js <http://nodetuts.com>`_
-- `NodeGuide - Felix's Node.js Guide <http://nodeguide.com/>`_, `GitHub <https://github.com/felixge/nodeguide.com>`_
-- `DailyJS - A javaScript Blog <http://dailyjs.com>`_, `GitHub <https://github.com/alexyoung/dailyjs>`_
+- `Mastering Node <http://visionmedia.github.com/masteringnode/book.html>`_, `GitHub-книги <https://github.com/visionmedia/masteringnode>`_
+- `NodeNerd <http://nodenerd.net>`_ - Node.js links and step-by-step tutorials
+- `NodeNode  <http://nodenode.com/>`_ - A blog about news, tutorials, tips, videos, and all other things node.js
+- `NodeTuts <http://nodetuts.com>`_ - Video tutorials about node.js
+- `NodeGuide <http://nodeguide.com/>`_ - Felix's Node.js Guide, `GitHub-руководства <https://github.com/felixge/nodeguide.com>`_
+- `DailyJS <http://dailyjs.com>`_ - A javaScript Blog, `GitHub-постов <https://github.com/alexyoung/dailyjs>`_
     - `DailyJS : Let's Make a Web App <http://dailyjs.com/tags.html#lmawa>`_
     - `DailyJS : Node Roundup <http://dailyjs.com/tags.html#node>`_
     - `DailyJS : Node.JS <http://dailyjs.com/tags.html#nodejs>`_

@@ -24,6 +24,7 @@ app.configure( function() {
     app.use(express.errorHandler({ dumpExceptions: true, showStack: true })); 
 });
 
+// Read sphinx-env file
 fs.readFile(env_file, 'utf8', function (err, data) {
     env = JSON.parse(data);
 });
