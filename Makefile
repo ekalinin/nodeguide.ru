@@ -11,6 +11,7 @@ ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) gui
 
 json:
 	$(SPHINXBUILD) -b json $(ALLSPHINXOPTS) $(BUILDDIR)/json
+	@rm -rf $(BUILDDIR)/json/_sources/
 	@echo
 	@echo "Build finished. The JSON pages are in $(BUILDDIR)/json."
 
