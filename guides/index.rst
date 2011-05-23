@@ -10,12 +10,9 @@
 сообществе node.js и много другой очень полезной информации.
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
-   felix/beginner
-   felix/style
-   felix/community
-   felix/convincing_the_boss
+   felix/index
 
 Полезно о node.js, JavaScript и т.д.
 ====================================
