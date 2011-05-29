@@ -121,6 +121,8 @@ Bert Belder
 * GitHub: `piscisaureus <https://github.com/piscisaureus>`_
 * Откуда: Netherlands
 
+.. _tj-holowaychuk:
+
 TJ Holowaychuk
 --------------
 

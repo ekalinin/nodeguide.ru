@@ -38,6 +38,7 @@ Node.js и JavaScript.
 - `JavaScript Garden <http://bonsaiden.github.com/JavaScript-Garden/>`_
 - `html5 шаблон <http://html5boilerplate.com/>`_
 - `Front end standards <http://yellowshoe.com.au/standards/>`_
+- `9 JavaScript Tips You May Not Know <http://aymanh.com/9-javascript-tips-you-may-not-know>`_
 
 Книги
 =====
