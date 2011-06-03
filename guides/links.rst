@@ -48,6 +48,7 @@ Node.js и JavaScript.
 - `Essential JavaScript Design Patterns For Beginners <http://www.addyosmani.com/resources/essentialjsdesignpatterns/book/>`_
 - `Eloquent JavaScript <http://eloquentjavascript.net>`_
 - `jQuery Fundamentals <http://jqfundamentals.com/book/>`_
+- `Let's Make a Framework: Free eBook <http://dailyjs.com/2010/12/02/framework-review/>`_
 
 Видео
 =====
