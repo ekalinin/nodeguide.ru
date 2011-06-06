@@ -289,8 +289,11 @@ Mongoose немного непрозрачным, но облегчает пон
 ============
 
 Исходный код приложения доступен на `alexyoung/nodepad`_.
+С исходным кодом текущей части можно ознакомиться в
+`коммите 904d3a1`_.
 
 .. _alexyoung/nodepad: https://github.com/alexyoung/nodepad
+.. _коммите 904d3a1: https://github.com/alexyoung/nodepad/commit/904d3a184ff4932410601ad1a44ad759663acdc0
 
 Заключение
 ==========
