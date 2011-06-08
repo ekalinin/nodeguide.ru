@@ -58,4 +58,10 @@ Node.js и JavaScript.
 - `Node.js Camp, 2010 <http://camp.nodejs.org/videos/>`_
 - `Server-side JavaScript with Node, Connect & Express, SenchaCon, 2010 <http://vimeo.com/18077379>`_
 - `Node.js: Asynchronous Purity Leads to Faster Development <http://www.infoq.com/presentations/nodejs>`_
-- `Parallel Programming with Node.js <http://www.infoq.com/presentations/Parallel-Programming-with-Nodejs>`_
+- `Parallel Programming with Node.js <http://www.infoq.com/presentations/Parallel-Programming-`with-Nodejs>`_
+
+Библиотеки
+==========
+
+- http://www.microjs.com/
+- http://www.everyjs.com/
