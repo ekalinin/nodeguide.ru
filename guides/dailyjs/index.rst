@@ -12,5 +12,6 @@
    web-app-1
    web-app-2
    web-app-3
+   web-app-4
 
 .. _серии уроков: http://dailyjs.com/tags.html#lmawa
