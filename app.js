@@ -27,17 +27,27 @@ app.configure( function() {
     app.use(express.errorHandler({ dumpExceptions: true, showStack: true })); 
 });
 
+// Route middleware
+function handleTrailSlash(req, res, next) {
+  if ( req.url[req.url.length - 1] !== '/' &&   // no trailing slash
+       req.url.indexOf('/index') === -1 ) {     // this is not a section index page
+    res.redirect( req.url + '/' )
+  } else {
+    next();
+  }
+}
+
 // Routes
 app.get('/', function (req, res) { res.redirect('/doc/'); });
 app.get(/doc$/, function (req, res) { res.redirect('/doc/'); });
-app.get(/doc\/([\w-\/]*)?$/, function (req, res, next) {
+app.get(/doc\/([\w-\/]*)?$/, handleTrailSlash, function (req, res, next) {
     var url = req.params[0],
         port = app.address().port,
         // url point to file
         doc_name = (url ? url.replace(/\/$/,'') : 'index') + '.fjson',
         filename = path.join(doc_base, doc_name);
 
-    console.log(' * filename #1: ' + filename);
+    //console.log(' * filename #1: ' + filename);
 
     path.exists(filename, function(exists) {
         // found
@@ -52,7 +62,7 @@ app.get(/doc\/([\w-\/]*)?$/, function (req, res, next) {
         // may be it was directory?
         // add index.fjson
         filename = path.join(doc_base, url, 'index.fjson');
-        console.log(' * filename #2: ' + filename);
+        //console.log(' * filename #2: ' + filename);
         path.exists(filename, function (exists) {
             if (!exists) {
                 res.send(404);
