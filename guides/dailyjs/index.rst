@@ -7,12 +7,9 @@
 с которыми придется столкнуться при работе с Node.js.
 
 .. toctree::
-   :maxdepth: 1
+   :numbered:
+   :glob:
 
-   web-app-1
-   web-app-2
-   web-app-3
-   web-app-4
-   web-app-5
+   web-app-*
 
 .. _серии уроков: http://dailyjs.com/tags.html#lmawa

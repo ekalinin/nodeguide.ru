@@ -15,6 +15,10 @@ json:
 	@rm -rf $(BUILDDIR)/json/*.pickle
 	@rm -rf $(BUILDDIR)/json/*.inv
 	@rm -rf $(BUILDDIR)/doctrees/
+	@rm -rf $(BUILDDIR)/json/_images/
+	@for file in `find $(BUILDDIR)/json/ -name "*.fjson"`; do \
+		sed -i 's/..\/..\/_images/\/img/g' $${file} ; \
+		done;
 	@echo
 	@echo "Build finished. The JSON pages are in $(BUILDDIR)/json."
 
