@@ -1,8 +1,9 @@
 // Modules
-var express = require('express');
-var path = require("path");
-var fs = require("fs"); 
-var os = require("os");
+var express = require('express')
+  , path = require('path')
+  , Sitemap = require('sitemap').Sitemap
+  , fs = require('fs')
+  , exec = require('child_process').exec;
 
 // Documentation base path
 var doc_base = path.join(__dirname, 'build', 'json');
@@ -37,7 +38,33 @@ function handleTrailSlash(req, res, next) {
   }
 }
 
+// Sitemap
+var sm = new Sitemap();
+app.get('/sitemap.xml', function (req, res) {
+  var host = 'http://nodeguide.ru/doc/';
+  res.header('Content-Type', 'application/xml');
+
+  if ( sm.urls.length ) {
+    res.send(sm.toString());
+    return;
+  }
+  else {
+    exec('find guides/ -name "*.rst"',
+      function (error, stdout, stderr) {
+        var out_list = stdout.split('\n');
+        for (i in out_list) {
+          sm.urls.push({
+            url: host + out_list[i].replace('.rst', '').replace('guides/', ''),
+            safe: true
+          });
+        }
+        res.send( sm.toString() );
+    });
+  }
+});
+
 // Routes
+
 app.get('/', function (req, res) { res.redirect('/doc/'); });
 app.get(/doc$/, function (req, res) { res.redirect('/doc/'); });
 app.get(/doc\/([\w-\/]*)?$/, handleTrailSlash, function (req, res, next) {
