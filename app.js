@@ -1,9 +1,8 @@
 // Modules
 var express = require('express')
   , path = require('path')
-  , Sitemap = require('sitemap').Sitemap
-  , fs = require('fs')
-  , exec = require('child_process').exec;
+  , sm = require('sitemap')
+  , fs = require('fs');
 
 // Documentation base path
 var doc_base = path.join(__dirname, 'build', 'json');
@@ -39,26 +38,39 @@ function handleTrailSlash(req, res, next) {
 }
 
 // Sitemap
-var sm = new Sitemap();
+var sitemap = sm.createSitemap({hostname: 'http://nodeguide.ru/doc'});
 app.get('/sitemap.xml', function (req, res) {
-  var host = 'http://nodeguide.ru/doc/';
+  var cdir = process.cwd();
   res.header('Content-Type', 'application/xml');
 
-  if ( sm.urls.length ) {
-    res.send(sm.toString());
+  // some type of cache
+  if ( sitemap.urls.length ) {
+    res.send(sitemap.toXML());
     return;
   }
+  // fill sitemap
   else {
-    exec('find guides/ -name "*.rst"',
-      function (error, stdout, stderr) {
-        var out_list = stdout.split('\n');
-        for (i in out_list) {
-          sm.urls.push({
-            url: host + out_list[i].replace('.rst', '').replace('guides/', ''),
-            safe: true
+    // add index page
+    sitemap.add({ url: '/', safe: true, priority: 1, changefreq: 'dayly' });
+    // add other pages
+    walk(cdir+'/guides', function(files) {
+        files.forEach( function (file) {
+          if (!file || file.indexOf('.rst') == -1) { return; }
+          // delete some stuff
+          var clear_url = file.replace(cdir, '')
+                              .replace('.rst', '')
+                              .replace('guides/', '');
+          // trailing slash fix
+          if (  clear_url[clear_url.length -1 ] != '/' &&
+                clear_url.indexOf('index') == -1 ) {
+            clear_url += '/';
+          }
+          sitemap.add({
+            url: clear_url, safe: true,
+            priority: (clear_url.indexOf('index') == -1) ? 0.5 : 0.8
           });
-        }
-        res.send( sm.toString() );
+        })
+        res.send( sitemap.toXML() );
     });
   }
 });
@@ -109,3 +121,26 @@ if (!module.parent) {
     app.listen(3000);
     console.log("Express server listening on port %d", app.address().port);
 }
+
+// Utils
+var walk = function(dir, done) {
+  var results = [];
+  fs.readdir(dir, function(err, list) {
+    if (err || !list) return done(results);
+    (function next(i) {
+      var f = list[i];
+      if (!f) return done(results);
+      fs.stat(dir + '/' + f, function(err, stat) {
+        if (stat && stat.isDirectory()) {
+          walk(dir + '/' + f, function(r) {
+            results = results.concat(r);
+            next(++i);
+          });
+        } else {
+          results.push(dir + '/' + f);
+          next(++i);
+        }
+      });
+    })(0);
+  });
+};
