@@ -23,7 +23,7 @@
 .. toctree::
    :maxdepth: 2
 
-   dailyjs/index
+   dailyjs-nodepad/index
 
 Полезно о Node.js, JavaScript и т.д.
 ====================================
