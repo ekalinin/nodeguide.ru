@@ -78,6 +78,8 @@ app.get('/sitemap.xml', function (req, res) {
 // Routes
 
 app.get('/', function (req, res) { res.redirect('/doc/'); });
+app.get(/doc\/dailyjs\/web-app-(\d)/, function (req, res) {
+  res.redirect('/doc/dailyjs-nodepad/node-tutorial-'+req.params[0]); });
 app.get(/doc$/, function (req, res) { res.redirect('/doc/'); });
 app.get(/doc\/([\w-\/]*)?$/, handleTrailSlash, function (req, res, next) {
     var url = req.params[0],
