@@ -23,7 +23,6 @@ json:
 	@echo "Build finished. The JSON pages are in $(BUILDDIR)/json."
 
 deploy:
-	git push nodester master
 	git push origin master
 
 dev:
