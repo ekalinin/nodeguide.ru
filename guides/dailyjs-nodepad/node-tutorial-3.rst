@@ -8,8 +8,8 @@ RESTful методы и тестирование в Expresso
 
 Предыдущие части:
 
-- :doc:`web-app-1`
-- :doc:`web-app-2`, коммит: `4ea936b`_
+- :doc:`node-tutorial-1`
+- :doc:`node-tutorial-2`, коммит: `4ea936b`_
 
 .. _4ea936b: https://github.com/alexyoung/nodepad/tree/4ea936b4b426012528fc722c7576391b48d5a0b7
 
