@@ -382,3 +382,7 @@ a.footnote-reference:hover {
 a:hover tt {
     background: #EEE;
 }
+
+#nav {
+    text-align: center;
+}

@@ -19,21 +19,32 @@ html(lang="ru")
             div.bodywrapper
                 div.body
                     !{doc.body}
+                    #nav
+                        - if (doc.parents.length)
+                            - if (doc.prev)
+                                a(href=doc.prev.link, title=doc.prev.title) « Назад
+                            - if (doc.prev && doc.next)
+                                 &nbsp;•
+                            - if (doc.next)
+                                a(href=doc.next.link, title=doc.next.title) Вперед »
         div.sphinxsidebar
             div.sphinxsidebarwrapper
-                - if (doc.rellinks)
-                    h3 Связанные темы
-                    ul
-                        li
-                            a(href='/') Главная
-                        - each link in doc.rellinks
-                            li
-                                - if (link[0] != 'genindex')
-                                    //- no trailing slash
-                                    a(href='/doc/'+link[0]) !{link[1]}
                 - if (doc.toc)
                     h3 Оглавление
                     !{doc.toc}
+                h3 Связанные темы
+                a(href='/') Все руководства о Node.js
+                ul
+                    li
+                        ul
+                            - if (doc.prev)
+                                li
+                                    Назад:
+                                    a(href=doc.prev.link) !{doc.prev.title}
+                            - if (doc.next)
+                                li
+                                    Вперед:
+                                    a(href=doc.next.link) !{doc.next.title}
         div.clearer
 
     div.footer
