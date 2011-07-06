@@ -80,9 +80,9 @@ GUI библиотек (как например Cappuccino_). Для *Nodepad* �
 Подключение Aristo и jQuery UI
 ==============================
 
-Для начала, необходимо скачать `Aristo с GitHub'a`_ и положил в
-``public/stylesheets/aristo``. После этого необходимо загрузить
-jQuery UI и новый css в шаблоне ``views/layout.jade``:
+Для начала, необходимо скачать `Aristo с GitHub'a`_ и расположить в
+``public/stylesheets/aristo``. После этого необходимо подключить
+jQuery UI и новый css в самом шаблоне ``views/layout.jade``:
 
 .. code-block:: javascript
 
@@ -92,6 +92,8 @@ jQuery UI и новый css в шаблоне ``views/layout.jade``:
         src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.7/jquery-ui.min.js')
 
 .. _Aristo с GitHub'a: https://github.com/taitems/Aristo-jQuery-UI-Theme
+
+.. _init-jade-tpl:
 
 Структура страницы
 ==================
