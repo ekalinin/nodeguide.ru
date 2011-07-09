@@ -1,3 +1,4 @@
-s@2.3.12
+express@2.3.12
+expresso@0.8.1
 jade@0.10.4
 sitemap@0.2.0
