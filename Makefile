@@ -22,7 +22,10 @@ json:
 	@echo
 	@echo "Build finished. The JSON pages are in $(BUILDDIR)/json."
 
-deploy:
+tests:
+	expresso
+
+deploy: tests
 	git push origin master
 
 dev:
