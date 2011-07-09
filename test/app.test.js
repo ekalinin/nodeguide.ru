@@ -53,6 +53,20 @@ module.exports = {
     );
   },
 
+  // correct redirect for old URLs
+  'GET /doc/dailyjs/index': function() {
+    assert.response(app,
+      { url: '/doc/dailyjs/index' },
+      {
+        status: 302,
+        headers: {
+          'Content-Type': 'text/html',
+          'Location': 'http://127.0.0.1:5555/doc/dailyjs-nodepad/index'
+        }
+      }
+    );
+  },
+
   // redirect /doc --> /doc/
   'GET /doc': function() {
     assert.response(app,
