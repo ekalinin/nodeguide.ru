@@ -51,7 +51,7 @@ app.get('/sitemap.xml', function (req, res) {
   // fill sitemap
   else {
     // add index page
-    sitemap.add({ url: '/', safe: true, priority: 1, changefreq: 'dayly' });
+    sitemap.add({ url: '/', safe: true, priority: 1, changefreq: 'daily' });
     // add other pages
     walk(cdir+'/guides', function(files) {
         files.forEach( function (file) {
