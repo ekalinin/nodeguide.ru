@@ -24,20 +24,36 @@ module.exports = {
     );
   },
 
-  // redirect no trailing slash
-  'GET /doc/dailyjs/web-app-5': function() {
+  // correct redirect for old URLs
+  // no trailing slash, future redirect fix it (see next test)
+  'GET /doc/dailyjs/web-app-5/': function() {
     assert.response(app,
-      { url: '/doc/dailyjs/web-app-5' },
+      { url: '/doc/dailyjs/web-app-5/' },
       {
         status: 302,
         headers: {
           'Content-Type': 'text/html',
-          'Location': 'http://127.0.0.1:5555/doc/dailyjs/web-app-5/'
+          'Location': 'http://127.0.0.1:5555/doc/dailyjs-nodepad/node-tutorial-5'
         }
       }
     );
   },
 
+  // redirect no trailing slash
+  'GET /doc/dailyjs-nodepad/node-tutorial-5': function() {
+    assert.response(app,
+      { url: '/doc/dailyjs-nodepad/node-tutorial-5' },
+      {
+        status: 302,
+        headers: {
+          'Content-Type': 'text/html',
+          'Location': 'http://127.0.0.1:5555/doc/dailyjs-nodepad/node-tutorial-5/'
+        }
+      }
+    );
+  },
+
+  // redirect /doc --> /doc/
   'GET /doc': function() {
     assert.response(app,
       { url: '/doc' },
@@ -52,9 +68,9 @@ module.exports = {
   },
 
   // handle no trailing slash for sector index page
-  'GET /doc/dailyjs/index': function() {
+  'GET /doc/dailyjs-nodepad/index': function() {
     assert.response(app,
-      { url: '/doc/dailyjs/index' },
+      { url: '/doc/dailyjs-nodepad/index' },
       {
         status: 200,
         headers: {'Content-Type': 'text/html; charset=utf-8'}
@@ -65,4 +81,17 @@ module.exports = {
     );
   },
 
+  // existance sitemap.xml
+  'GET /sitemap.xml': function() {
+    assert.response(app,
+      { url: '/sitemap.xml' },
+      {
+        status: 200,
+        headers: {'Content-Type': 'application/xml'}
+      },
+      function(res) {
+        assert.includes(res.body, '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">');
+      }
+    );
+  },
 };
