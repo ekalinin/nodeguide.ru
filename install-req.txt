@@ -1,4 +1,4 @@
 express@2.3.12
 expresso@0.8.1
 jade@0.10.4
-sitemap@0.2.0
+sitemap@0.6.0

@@ -40,24 +40,17 @@ function handleTrailSlash(req, res, next) {
 // Sitemap
 var sitemap = sm.createSitemap({hostname: 'http://nodeguide.ru/doc'});
 app.get('/sitemap.xml', function (req, res) {
-  var cdir = process.cwd();
-  res.header('Content-Type', 'application/xml');
 
   // some type of cache
-  if ( sitemap.urls.length ) {
-    res.send(sitemap.toXML());
-    return;
-  }
-  // fill sitemap
-  else {
+  if ( sitemap.urls.length === 0 ) {
     // add index page
     sitemap.add({ url: '/', safe: true, priority: 1, changefreq: 'daily' });
     // add other pages
-    walk(cdir+'/guides', function(files) {
+    walk(__dirname+'/guides', function(files) {
         files.forEach( function (file) {
           if (!file || file.indexOf('.rst') == -1) { return; }
           // delete some stuff
-          var clear_url = file.replace(cdir, '')
+          var clear_url = file.replace(__dirname, '')
                               .replace('.rst', '')
                               .replace('guides/', '');
           // trailing slash fix
@@ -67,12 +60,17 @@ app.get('/sitemap.xml', function (req, res) {
           }
           sitemap.add({
             url: clear_url, safe: true,
-            priority: (clear_url.indexOf('index') == -1) ? 0.5 : 0.8
+            priority: (clear_url.indexOf('index') > -1) ? 0.5 : 0.8,
+            changefreq: (clear_url.indexOf('index') > -1) ? 'daily' : 'weekly'
           });
         })
-        res.send( sitemap.toXML() );
     });
   }
+
+  sitemap.toXML( function (xml) {
+    res.header('Content-Type', 'application/xml');
+    res.send( xml );
+  });
 });
 
 // Routes
