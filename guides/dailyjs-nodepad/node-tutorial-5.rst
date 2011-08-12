@@ -76,6 +76,7 @@ connect-redis_ и connect-mongodb_. В качестве альтернативы
       req.session.message = 'Hello World';
     });
 
+.. _mongodb-sessions:
 
 Сессии в MongoDB
 ================
