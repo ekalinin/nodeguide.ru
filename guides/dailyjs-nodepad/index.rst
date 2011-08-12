@@ -10,6 +10,7 @@
    :numbered:
    :glob:
 
-   node-tutorial-*
+   node-tutorial-?
+   node-tutorial-??
 
 .. _серии уроков: http://dailyjs.com/tags.html#lmawa
