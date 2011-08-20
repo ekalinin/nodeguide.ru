@@ -59,6 +59,7 @@ Node.js и JavaScript.
 - `Server-side JavaScript with Node, Connect & Express, SenchaCon, 2010 <http://vimeo.com/18077379>`_
 - `Node.js: Asynchronous Purity Leads to Faster Development <http://www.infoq.com/presentations/nodejs>`_
 - `Parallel Programming with Node.js <http://www.infoq.com/presentations/Parallel-Programming-`with-Nodejs>`_
+- `Node Tuts - Node.js Free screencast tutorials <http://nodetuts.com/tutorials/>`
 
 Библиотеки
 ==========
