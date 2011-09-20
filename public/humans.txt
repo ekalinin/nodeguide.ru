@@ -1,0 +1,15 @@
+/* TEAM */
+  Development: Eugene Kalinin
+  Site: www.github.com/ekalinin/
+  Twitter: @evkalinin
+  Location: Moscow, Russia
+
+/* THANKS */
+  Sergey Pikhovkin: www.github.com/pikhovkin
+  Alexandr Bishop: www.github.com/Bishop
+
+/* SITE */
+  Language: Russian
+  Standards: HTML5
+  Components: Node.js, Jade, Express, Sitemap
+  Tools: reStructuredText, Sphinx doc, nodeenv
