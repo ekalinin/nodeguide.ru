@@ -82,7 +82,7 @@ Ryan Dahl
 
 .. _ВПД: http://ru.wikipedia.org/wiki/Великодушный_пожизненный_диктатор
 .. _Joyent: http://joyent.com/
-.. _node.js хостинг: http://no.de/
+.. _node.js-хостинг: http://no.de/
 
 * IRC Nick: ryah
 * Twitter: `@ryah <http://twitter.com/ryah>`_
