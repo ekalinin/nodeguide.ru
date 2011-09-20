@@ -27,6 +27,7 @@ Node.js и JavaScript.
     - `DailyJS : Node Roundup <http://dailyjs.com/tags.html#node>`_
     - `DailyJS : Node.JS <http://dailyjs.com/tags.html#nodejs>`_
     - `DailyJS : Let's Make a Framework <http://dailyjs.com/tags.html#lmaf>`_
+- `Useful Node.js Tools, Tutorials And Resources <http://coding.smashingmagazine.com/2011/09/16/useful-node-js-tools-tutorials-and-resources/>`_
 
 Отдельные статьи
 ================
