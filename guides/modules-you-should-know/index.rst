@@ -10,6 +10,7 @@ express, expresso, lazy, и многие другие.
    :maxdepth: 1
 
    dnode
+   optimist
 
 .. _данной серии статей: http://www.catonmat.net/series/node-js-modules-you-should-know-about
 
