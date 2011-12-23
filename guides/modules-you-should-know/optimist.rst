@@ -193,6 +193,10 @@ Optimist так же поддерживает значения «по умолч
 для разбора большого количества аргументов. Еще одной альтернативой может
 стать модуль nomnom_, который позволяет описывать аргументы в виде хэшей.
 
+.. note::
+   Еще одной альтернативой является библиотека commander.js_. (прим. переводчика)
+
 .. _nopt: https://github.com/isaacs/nopt
 .. _isaacs: https://github.com/isaacs
 .. _nomnom: https://github.com/harthur/nomnom
+.. _commander.js: https://github.com/visionmedia/commander.js
