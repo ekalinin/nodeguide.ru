@@ -28,9 +28,14 @@ tests:
 deploy: tests
 	git push origin master
 
+refresh:
+	git pull
+
 dev:
 	node app.js
 
 clean:
 	@rm -rf $(BUILDDIR)/*
 
+prod: refresh json
+	node server.js
