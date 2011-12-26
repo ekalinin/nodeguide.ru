@@ -11,6 +11,7 @@ express, expresso, lazy, и многие другие.
 
    dnode
    optimist
+   lazy
 
 .. _данной серии статей: http://www.catonmat.net/series/node-js-modules-you-should-know-about
 
