@@ -29,7 +29,7 @@ Node.js и JavaScript.
     - `DailyJS : Let's Make a Framework <http://dailyjs.com/tags.html#lmaf>`_
 - `Useful Node.js Tools, Tutorials And Resources <http://coding.smashingmagazine.com/2011/09/16/useful-node-js-tools-tutorials-and-resources/>`_
 - nodejitsu.com:
-    - `docs.nodejitsu.com <http://docs.nodejitsu.com>`_ — community powered rocket-fuel for node.js `GitHub-постов <https://github.com/nodejitsu/docs/>`_
+    - `docs.nodejitsu.com <http://docs.nodejitsu.com>`_ — community powered rocket-fuel for node.js `GitHub for doc <https://github.com/nodejitsu/docs/>`_
     - `blog.nodejitsu.com <http://blog.nodejitsu.com>`_ — nodejitsu blog
 
 Отдельные статьи
