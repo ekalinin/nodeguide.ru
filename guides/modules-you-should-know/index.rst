@@ -7,12 +7,14 @@ Node.js модули, о которых вы должны знать
 express, expresso, lazy, и многие другие.
 
 .. toctree::
+   :numbered:
    :maxdepth: 1
 
    dnode
    optimist
    lazy
    request
+   hashish
 
 .. _данной серии статей: http://www.catonmat.net/series/node-js-modules-you-should-know-about
 
