@@ -172,6 +172,9 @@ Felix Geisendörfer
 .. _mysql: https://github.com/felixge/node-mysql
 .. _transloadit.com: http://transloadit.com/
 
+
+.. _mikeal-rogers:
+
 Mikeal Rogers
 -------------
 
@@ -265,6 +268,7 @@ Peteris Krumins
 
 .. _catomat.net: http://catonmat.net/
 .. _browserling: http://browserling.com/
+
 
 .. _james-halliday:
 
