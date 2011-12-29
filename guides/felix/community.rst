@@ -266,6 +266,8 @@ Peteris Krumins
 .. _catomat.net: http://catonmat.net/
 .. _browserling: http://browserling.com/
 
+.. _james-halliday:
+
 James Halliday
 --------------
 
