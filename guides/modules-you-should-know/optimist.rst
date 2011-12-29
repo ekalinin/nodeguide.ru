@@ -8,12 +8,11 @@ Node.js модули, о которых вы должны знать: optimist
 
 На этот раз я представляю node-optimist_ — легковесную библиотеку для
 парсинга опций в командной строке. Автором является мой партнер (сооснователь)
-по Browserling_ и Testling_ — `James Halliday (SubStack)`_.
+по Browserling_ и Testling_ — :ref:`James Halliday <james-halliday>`.
 
 .. _node-optimist: https://github.com/substack/node-optimist
 .. _Browserling: http://www.catonmat.net/blog/launching-browserling/
 .. _Testling: http://www.catonmat.net/blog/announcing-testling/
-.. _James Halliday (SubStack): http://substack.net/
 
 Интересно, насколько лёгкий может быть разбор аргументов коммандной строки?
 Оцените:
@@ -125,7 +124,7 @@ Node.js модули, о которых вы должны знать: optimist
 Описание и обязательные аргументы
 =================================
 
-Optimist поставляется с двумя функциями ``.usage()`` и ``.demand()``:
+**Optimist** поставляется с двумя функциями ``.usage()`` и ``.demand()``:
 
 .. code-block:: javascript
 
@@ -156,7 +155,7 @@ Optimist поставляется с двумя функциями ``.usage()`` 
 Значения «по умолчанию»
 =======================
 
-Optimist так же поддерживает значения «по умолчанию» с помощью функции
+**Optimist** так же поддерживает значения «по умолчанию» с помощью функции
 ``.default()``:
 
 .. code-block:: javascript

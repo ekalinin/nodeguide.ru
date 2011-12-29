@@ -9,8 +9,9 @@ node.js. Второй пост был посвящен :doc:`optimist <optimist>
 парсеру командной строки для node.js. Третий был про :doc:`lazy <lazy>` —
 ленивые списки для node.js.
 
-В этой заметке я хочу представить классный модуль request_ от `Mikeal Rogers`_.
-**request** — это армейский нож HTTP стриминга.
+В этой заметке я хочу представить классный модуль request_ от
+:ref:`Mikeal Rogers <mikeal-rogers>`. **request** — это армейский нож HTTP
+стриминга.
 
 .. _request: https://github.com/mikeal/request
 .. _Mikeal Rogers: http://www.mikealrogers.com/
