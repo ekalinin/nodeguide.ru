@@ -175,7 +175,7 @@ API Mongoose делает код асинхронного обращения к 
 - `Список пакетов для NPM`_
 
 .. _Сравнение JavaScript фреймворков:
-   http://en.wikipedia.org/wiki/Comparison_of_JavaScript_frameworks>
+   http://en.wikipedia.org/wiki/Comparison_of_JavaScript_frameworks
 .. _Модули для Node.js: http://github.com/ry/node/wiki/modules
 .. _NoSQL ресурсы: http://nosql-database.org/
 .. _Список пакетов для NPM: http://npm.mape.me/
