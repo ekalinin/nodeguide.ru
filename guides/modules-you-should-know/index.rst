@@ -19,6 +19,7 @@ express, expresso, lazy, и многие другие.
    ntwitter
    socketio
    redis
+   express
 
 .. _данной серии статей: http://www.catonmat.net/series/node-js-modules-you-should-know-about
 
