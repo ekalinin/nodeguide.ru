@@ -74,9 +74,13 @@ MongoDB
 Это - путь по-умполчанию, но его легко изменить. При разработке я использую
 значение по-умолчанию.
 
-Дальнейшие инструкции по установке можно получить в `MongoDB Quickstart Guide`_.
+Дальнейшие инструкции по установке можно получить в `MongoDB Quickstart Guide`_
+или `MongoDB быстрый старт`_. О том, что и как делается в монго кратко описано
+в `The Little MongoDB Book`_.
 
 .. _MongoDB Quickstart Guide: http://www.mongodb.org/display/DOCS/Quickstart
+.. _MongoDB быстрый старт: http://ru.wiki.mongodb.org/display/DOCS/Quickstart
+.. _The Little MongoDB Book: http://express-js.ru/mongo-book/
 
 npm
 ===
