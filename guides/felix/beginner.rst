@@ -368,7 +368,7 @@ console.log(). Объекты можно передавать в качеств�
 
 .. code-block:: bash
 
-    $ node.js debug my_file.js
+    $ node debug my_file.js
 
 .. todo::
 
