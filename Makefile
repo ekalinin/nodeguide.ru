@@ -31,7 +31,7 @@ deploy: tests
 refresh:
 	git pull
 
-dev:
+dev: json
 	node app.js
 
 clean:
