@@ -3,3 +3,4 @@
 *eng*
 .*.swp
 build/*
+node_modules/

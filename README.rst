@@ -43,13 +43,13 @@
 
 Создаем виртуальное окружение для python и активируем его::
 
-    $ virtualenv --no-site-packages .py-env
-    $ source .py-env/bin/activate
+    $ virtualenv --no-site-packages ./env
+    $ . ./env/bin/activate
 
 Устанавливаем пакеты в python-окружении. sphinx_ — для генерации
 \*.json, nodeenv_ — для создания виртуального окружения для node.js::
 
-    (.py-env) $ pip install nodeenv sphinx
+    (env) $ pip install nodeenv sphinx
 
 .. _sphinx: http://sphinx.pocoo.org/
 .. _nodeenv: http://github.com/ekalinin/nodeenv
@@ -57,9 +57,9 @@
 Создаем виртуальное окружение для node.js, попутно устанавливая все
 необходимые пакеты для node.js, и активируем новое окружение::
 
-    (.py-env) $ nodeenv --requirement=install-req.txt --node=0.4.12 --npm=1.0.106 .node-env
-    (.py-env) $ source .node-env/bin/activate
+    (env) $ nodeenv --node=0.4.12 --npm=1.0.106 --without-ssl -p
+    (env) $ npm install
 
 Генерируем \*.json и запускаем сайт на http://127.0.0.1:3000::
 
-    (.node-env)(.py-env) $ make json && make dev
+    (env) $ make dev
