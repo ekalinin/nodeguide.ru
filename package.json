@@ -1,0 +1,12 @@
+{
+  "name": "nodeguide.ru"
+, "version": "0.0.1"
+, "private": true
+, "dependencies": {
+    "express": "2.3.12"
+  , "expresso": "0.8.1"
+  , "jade": "0.10.4"
+  , "sitemap": "0.6.0"
+  , "zlib"
+  }
+}
