@@ -99,6 +99,8 @@ Backbone.sync
 В нашем случае, Google предоставляет JavaScript API. То есть, как только будет
 загружен Google API в нашем окружении появится объект ``gapi.client``.
 
+.. _google-api-console-setup:
+
 Настройка учетной записи для Google API
 =======================================
 
