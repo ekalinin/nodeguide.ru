@@ -166,7 +166,7 @@ Google Tasks API    Backbone.sync метод     Описание
 
 .. code-block:: bash
 
-    $ touech app/js/models/tasklist.js
+    $ touch app/js/models/tasklist.js
 
 Со следующим содержимым:
 
