@@ -258,12 +258,6 @@ HTML. Он отрисовывается с помощью связывания �
     function(ApiManager, AppView, AuthView) {
 
       var App = function() {
-        // У меня заработало только после добавления этой строки.
-        // Проверял в Chromium'e:
-        // 25.0.1364.160 Ubuntu 12.10 (25.0.1364.160-0ubuntu0.12.10.1)
-        // (прим. автора)
-        this.views = {};
-
         this.views.app = new AppView();
         this.views.app.render();
 
@@ -274,6 +268,8 @@ HTML. Он отрисовывается с помощью связывания �
       };
 
       App.prototype = {
+        views: {},
+
         connectGapi: function() {
           this.apiManager = new ApiManager(this);
         }
