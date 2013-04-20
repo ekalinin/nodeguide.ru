@@ -270,6 +270,26 @@ Google Tasks API    Backbone.sync метод     Описание
 
     function(ApiManager, AppView, AuthView, TaskLists) {
 
+
+В конструкторе ``App`` добавляем создание коллекции списков:
+
+.. code-block:: javascript
+
+    var App = function() {
+      this.views.app = new AppView();
+      this.views.app.render();
+
+      this.views.auth = new AuthView(this);
+      this.views.auth.render();
+
+      // вот эту строчку
+      this.collections.lists = new TaskLists();
+
+      this.connectGapi();
+    };
+
+.. _add-ready-event-handler:
+
 А чуть ниже, в том же файле, добавьте вот это в метод ``connectGapi``, чтобы
 ``App.prototype`` принял следующий вид (так же добавляется переменная
 ``collections``):
@@ -284,8 +304,6 @@ Google Tasks API    Backbone.sync метод     Описание
         var self = this;
         this.apiManager = new ApiManager(this);
         this.apiManager.on('ready', function() {
-          // у меня заработало только после добавления этой строки
-          self.collections.lists = new TaskLists()
           self.collections.lists.fetch({ data: { userId: '@me' }, success: function(res) {
             _.each(res.models, function(model) {
               console.log(model.get('title'));
