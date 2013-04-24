@@ -64,6 +64,8 @@
     $ mkdir app/js/views/lists
     $ mkdir app/js/templates/lists
 
+.. _listmenuview:
+
 Представление ``ListMenuView``
 ==============================
 
