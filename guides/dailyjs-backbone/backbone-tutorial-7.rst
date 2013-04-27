@@ -319,3 +319,80 @@ Backbone-кода сосредоточена на пользовательско
 должны работать, избегая влияния состояния внешних объектов на них.
 
 Все изменения — `одной пачкой <http://github.com/alexyoung/dailyjs-backbone-tutorial/tree/0953c5d7873fe3f7d176984e0337724be2b3386f>`_.
+
+PS
+==
+
+(прим. переводчика)
+
+Кажется, что в код закралась ещё одна бага. Так теперь, если просмотреть список
+задач, то можно видеть, что они задваиваются. Это происходит потому, что
+метод ``bTask.views.listMenu.renderMenuItem`` (класс ``ListMenuView``)
+вызывается дважды для каждого элемента списка.
+
+Обратить внимание необходимо на три блока кода.
+
+``app/js/app.js``:
+
+.. code-block:: javascript
+
+    connectGapi: function() {
+      var self = this;
+      this.apiManager = new ApiManager(this);
+      this.apiManager.on('ready', function() {
+        self.collections.lists.fetch({
+          data: { userId: '@me' },
+          success: function(res) {
+            self.views.listMenu.render();
+          }
+        });
+      });
+    }
+
+``app/js/views/lists/menu.js``:
+
+.. code-block:: javascript
+
+    initialize: function() {
+      this.collection.on('add', this.renderMenuItem, this);
+    },
+
+и там же в  ``app/js/views/lists/menu.js``:
+
+.. code-block:: javascript
+
+    render: function() {
+      var $el = $(this.el)
+        , self = this;
+
+      this.collection.each(function(list) {
+        self.renderMenuItem(list);
+      });
+
+      return this;
+    }
+
+Причина ошибки в том, что коллекция списков при добавлении нового элемента
+всегда инициирует вызов ``renderMenuItem``. То есть, когда открывается главная
+страница приложения и выполняется ``self.collections.lists.fetch``, то для
+каждого элемента, полученного с сервера и добавленного в коллекцию, будет
+выполнен метод ``renderMenuItem``. В результате чего, данный элемент будет
+показан на странице. Но в нашем же случае, ещё есть функция обратного вызова,
+отрабатывающая при успешном выполнении ``self.collections.lists.fetch``. В ней
+вызывается метод ``self.views.listMenu.render``, в котором выполняется
+еще один проход по каждому элементу коллекции и для для каждого из них
+вызывается ``renderMenuItem``. То есть, чтобы ликвидировать ошибку, достаточно
+избавить от вызова ``self.views.listMenu.render``. Иначе говоря, метод
+``connectGapi`` в ``app/js/app.js`` должен иметь следующий вид:
+
+.. code-block:: javascript
+
+    connectGapi: function() {
+      var self = this;
+      this.apiManager = new ApiManager(this);
+      this.apiManager.on('ready', function() {
+        self.collections.lists.fetch({
+          data: { userId: '@me' }
+        });
+      });
+    }
