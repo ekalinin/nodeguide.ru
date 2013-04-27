@@ -175,7 +175,7 @@ Backbone.sync
         <label class="control-label" for="list_title">Title</label>
         <div class="controls">
           <input type="text" class="input-xlarge" name="title"
-                 id="list_title" value=""
+                 id="list_title" value="{{title}}"
                  placeholder="The list's title">
         </div>
       </div>
@@ -296,6 +296,7 @@ Backbone.sync
 вызова ``success``. После этого модель добавляется в глобальную коллекцию
 ``lists``. В завершении всего, представление удаляет само себя.
 
+.. _add-list-button:
 
 Кнопка добавления списка
 ========================
