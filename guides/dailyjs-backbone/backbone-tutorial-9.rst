@@ -113,10 +113,10 @@ CRUD для задач
 
 .. code-block:: html
 
-    <input type="checkbox" data-task-id="" name="task_check_"
-           class="check-task" value="t">
-    <span class="title"></span>
-    <span class="notes"></span>
+    <input type="checkbox" data-task-id="{{id}}" name="task_check_{{id}}"
+          class="check-task" value="t">
+    <span class="title {{status}}">{{title}}</span>
+    <span class="notes">{{notes}}</span>
 
 
 Представления
@@ -450,6 +450,20 @@ Backbone 0.9.10
 .. code-block:: javascript
 
     options.success(model, result, request);
+
+.. note::
+
+    В моём случае, после выполнения данной замены всё сломалось: перестали
+    грузиться списки с сервера и стала вылезать ошибка:
+
+        ``Uncaught ReferenceError: id is not defined``
+
+    Выоезала они из ``menuitem.js``, строчка:
+
+        ``$el.html(this.template(this.model.toJSON()));``
+
+    Так что, я безболезненно оставил прежний способ вызова функции обратного
+    вызова ``success``. Проверял с ``Backbone 1.0.0``.
 
 
 Итоги
