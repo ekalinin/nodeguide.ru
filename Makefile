@@ -43,6 +43,6 @@ prod: refresh json
 env:
 	@virtualenv env && \
 		. env/bin/activate && \
-		pip install nodeenv && \
+		pip install nodeenv sphinx && \
 		nodeenv --node=7.8.0 -p --prebuilt && \
 		npm install
