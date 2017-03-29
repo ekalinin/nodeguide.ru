@@ -1,0 +1,59 @@
+doctype html
+html(lang="ru")
+  head
+    title!=doc.title
+    meta(charset='utf-8')
+    link(rel='author', href='/humans.txt')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/pygments.css')
+    <!--[if IE]>
+        script(src="http://html5shiv.googlecode.com/svn/trunk/html5.js", 
+               type="application/javascript")
+    <!--<![endif]-->
+
+  body
+
+    div.document
+
+        a(href='http://github.com/ekalinin/nodeguide.ru') 
+            img(alt='Fork me on GitHub',
+                style='position: fixed; top: 0; right: 0; border: 0;',
+                src='http://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png')
+
+        div.documentwrapper
+            div.bodywrapper
+                div.body
+                    != doc.body
+                    #nav
+                        - if (doc.parents.length)
+                            - if (doc.prev)
+                                a(href=doc.prev.link, title=doc.prev.title) « Назад
+                            - if (doc.prev && doc.next)
+                                 = ' | '
+                            - if (doc.next)
+                                a(href=doc.next.link, title=doc.next.title) Вперед »
+        div.sphinxsidebar
+            div.sphinxsidebarwrapper
+                - if (doc.toc)
+                    h3 Оглавление
+                    != doc.toc
+                h3 Связанные темы
+                a(href='/') Все руководства о Node.js
+                ul
+                    li
+                        ul
+                            - if (doc.prev)
+                                li 
+                                    = 'Назад: '
+                                    a(href!=doc.prev.link) !{doc.prev.title}
+                            - if (doc.next)
+                                li 
+                                    = 'Вперед: '
+                                    a(href!=doc.next.link) !{doc.next.title}
+        div.clearer
+
+    div.footer
+      p
+        != '&copy; '
+        a(href='/') nodeguide.ru
+        |  последнее обновление: #{env.last_updated}

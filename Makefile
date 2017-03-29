@@ -44,5 +44,5 @@ env:
 	@virtualenv env && \
 		. env/bin/activate && \
 		pip install nodeenv && \
-		nodeenv --node=0.4.12 --npm=1.0.106 -p && \
+		nodeenv --node=7.8.0 -p --prebuilt && \
 		npm install

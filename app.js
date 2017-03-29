@@ -15,17 +15,15 @@ fs.readFile(path.join(doc_base, 'globalcontext.json'), 'utf8', function (err, da
 });
 
 // Application configuration
-var app = module.exports = express.createServer();
-app.configure( function() {
+var app = module.exports = express();
     app.set('views', __dirname + '/views');
-    app.set('view engine', 'jade');
+    app.set('view engine', 'pug');
     app.use(express.logger());
     app.use(express.bodyParser());
     app.use(express.methodOverride());
     app.use(app.router);
     app.use(express.static(__dirname + '/public'));
     app.use(express.errorHandler({ dumpExceptions: true, showStack: true })); 
-});
 
 // Route middleware
 function handleTrailSlash(req, res, next) {
@@ -83,19 +81,19 @@ app.get(/doc\/dailyjs\/index/, function (req, res) {
 app.get(/doc$/, function (req, res) { res.redirect('/doc/'); });
 app.get(/doc\/([\w-\/]*)?$/, handleTrailSlash, function (req, res, next) {
     var url = req.params[0],
-        port = app.address().port,
+        port = app.get('port'),
         // url point to file
         doc_name = (url ? url.replace(/\/$/,'') : 'index') + '.fjson',
         filename = path.join(doc_base, doc_name);
 
-    //console.log(' * filename #1: ' + filename);
+    // console.log(' * filename #1: ' + filename);
 
-    path.exists(filename, function(exists) {
+    fs.exists(filename, function(exists) {
         // found
         if (exists) {
             fs.readFile(filename, 'utf8', function (err, data) {
                 res.render('layout', { doc: JSON.parse(data),
-                                        env: env, port: port});
+                                       env: env, port: port});
             });
             return;
         }
@@ -104,7 +102,7 @@ app.get(/doc\/([\w-\/]*)?$/, handleTrailSlash, function (req, res, next) {
         // add index.fjson
         filename = path.join(doc_base, url, 'index.fjson');
         //console.log(' * filename #2: ' + filename);
-        path.exists(filename, function (exists) {
+        fs.exists(filename, function (exists) {
             if (!exists) {
                 res.send(404);
                 return;
@@ -121,7 +119,7 @@ app.get(/doc\/([\w-\/]*)?$/, handleTrailSlash, function (req, res, next) {
 // Only listen on $ node app.js
 if (!module.parent) {
     app.listen(3000);
-    console.log("Express server listening on port %d", app.address().port);
+    console.log("Express server listening on port %d", 3000);
 }
 
 // Utils
