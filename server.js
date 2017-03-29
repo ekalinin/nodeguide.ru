@@ -9,8 +9,8 @@ var port = 9388;
     app.use(express.bodyParser());
     app.use(express.methodOverride());
     app.use(app.router);
-    app.use(express.static(__dirname + '/public', { maxAge: oneYear }));
-    app.use(express.errorHandler()); 
+    app.use(express.static(__dirname + '/public', {maxAge: oneYear}));
+    app.use(express.errorHandler());
 
 app.listen(port);
-console.log('Server listening on port '+port);
+console.log('Server listening on port ' + port);

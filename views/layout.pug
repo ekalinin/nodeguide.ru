@@ -7,7 +7,7 @@ html(lang="ru")
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='/stylesheets/pygments.css')
     <!--[if IE]>
-        script(src="http://html5shiv.googlecode.com/svn/trunk/html5.js", 
+        script(src="http://html5shiv.googlecode.com/svn/trunk/html5.js",
                type="application/javascript")
     <!--<![endif]-->
 
@@ -15,7 +15,7 @@ html(lang="ru")
 
     div.document
 
-        a(href='http://github.com/ekalinin/nodeguide.ru') 
+        a(href='http://github.com/ekalinin/nodeguide.ru')
             img(alt='Fork me on GitHub',
                 style='position: fixed; top: 0; right: 0; border: 0;',
                 src='http://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png')
@@ -43,11 +43,11 @@ html(lang="ru")
                     li
                         ul
                             - if (doc.prev)
-                                li 
+                                li
                                     = 'Назад: '
                                     a(href!=doc.prev.link) !{doc.prev.title}
                             - if (doc.next)
-                                li 
+                                li
                                     = 'Вперед: '
                                     a(href!=doc.next.link) !{doc.next.title}
         div.clearer

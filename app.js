@@ -23,7 +23,7 @@ var app = module.exports = express();
     app.use(express.methodOverride());
     app.use(app.router);
     app.use(express.static(__dirname + '/public'));
-    app.use(express.errorHandler({ dumpExceptions: true, showStack: true })); 
+    app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 
 // Route middleware
 function handleTrailSlash(req, res, next) {
